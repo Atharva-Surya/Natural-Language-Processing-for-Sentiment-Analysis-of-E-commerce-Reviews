@@ -116,15 +116,6 @@ Output: Positive
 
 ---
 
-## Project Structure
-
-amazon-nlp-project/
-├── notebook.ipynb
-├── README.md
-├── data/
-└── requirements.txt
-
----
 
 ## Future Work
 
