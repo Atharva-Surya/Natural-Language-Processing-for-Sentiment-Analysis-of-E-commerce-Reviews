@@ -9,35 +9,125 @@ This project aims to leverage Natural Language Processing (NLP) techniques to an
 - Easy integration with other e-commerce analytics tools.
 - Comprehensive reporting features for stakeholders.
 
-## Installation Instructions
-To set up the project locally, follow these steps:
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Atharva-Surya/Natural-Language-Processing-for-Sentiment-Analysis-of-E-commerce-Reviews.git
-   cd Natural-Language-Processing-for-Sentiment-Analysis-of-E-commerce-Reviews
-   ```
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
-## Usage Guide
-To run the sentiment analysis:
-1. Ensure the dataset of reviews is in the appropriate format.
-2. Run the following command:
-   ```bash
-   python sentiment_analysis.py --input <path_to_reviews_file>
-   ```
-3. Check the output in the specified output directory.
+## Dataset
+
+* Dataset: Amazon Product Reviews
+* Source: Kaggle
+* Features:
+
+  * `reviewText` → Review text
+  * `overall` → Rating (1–5)
+
+### Sentiment Mapping
+
+* 4–5 → Positive
+* 3 → Neutral
+* 1–2 → Negative
+
+---
+
+## NLP Preprocessing
+
+The following preprocessing steps were applied:
+
+* Tokenization
+* Stopword removal
+* Stemming using Porter Stemmer
+* Lemmatization using WordNet Lemmatizer
+* Removal of special characters and noise
+
+---
+
+## Text Vectorization
+
+Two vectorization techniques were used:
+
+* CountVectorizer
+* TF-IDF with n-grams (1,2)
+
+---
+
+## Models Used
+
+* Naive Bayes (CountVectorizer)
+* Logistic Regression (TF-IDF)
+* Support Vector Machine (TF-IDF)
+
+---
+
+## Model Performance
+
+| Model                        | Accuracy |
+| ---------------------------- | -------- |
+| Naive Bayes (CV)             | 0.81     |
+| Logistic Regression (TF-IDF) | 0.83     |
+| SVM (TF-IDF)                 | 0.83     |
+
+---
+
+## Confusion Matrix Analysis
+
+The confusion matrix shows the classification performance of the Logistic Regression model.
+![Confusion Matrix](confusion_matrix.png)
+
+* The model correctly predicts a large number of **positive reviews**, indicating strong performance for majority class.
+* Some confusion exists between **negative and positive classes**, which is common in sentiment datasets.
+* The **neutral class has fewer correct predictions**, indicating it is harder to classify due to ambiguity in text.
+* Overall, the model performs well but can be improved for minority classes.
+
+---
+
+## Model Comparison
+![Model Comparision](model_comparision.png)
+
+* Logistic Regression and SVM achieved the highest accuracy (~0.83), showing strong performance with TF-IDF features.
+* Naive Bayes performed slightly lower (~0.81) due to its assumption of feature independence.
+* TF-IDF based models outperformed CountVectorizer as they capture word importance better.
+
+---
+
+## Evaluation Metrics
+
+The models were evaluated using:
+
+* Accuracy
+* Precision
+* Recall
+* F1-score
+* Confusion Matrix
+* Cross-validation (optional)
+
+---
+
+## Sample Prediction
+
+Input: "This product is amazing and worth the money"
+Output: Positive
+
+---
+
+## Conclusion
+
+* TF-IDF significantly improves model performance compared to CountVectorizer.
+* Logistic Regression and SVM provide the best results for text classification tasks.
+* NLP preprocessing plays a crucial role in improving classification accuracy.
+* The model performs well overall but can be improved for neutral sentiment classification.
+
+---
 
 ## Project Structure
-```
-Natural-Language-Processing-for-Sentiment-Analysis-of-E-commerce-Reviews/
-│
-├── data/                        # Contains dataset files
-├── src/                         # Source code for the application
-│   ├── sentiment_analysis.py    # Main script for sentiment analysis
-│   └── utils.py                # Utility functions
-├── requirements.txt             # Python package dependencies
-└── README.md                    # Project documentation
-```
+
+amazon-nlp-project/
+├── notebook.ipynb
+├── README.md
+├── data/
+└── requirements.txt
+
+---
+
+## Future Work
+
+* Hyperparameter tuning
+* Use of deep learning models (LSTM, BERT)
+* Deployment using Streamlit
