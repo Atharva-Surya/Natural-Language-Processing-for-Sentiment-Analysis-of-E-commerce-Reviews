@@ -1,4 +1,5 @@
 # Natural Language Processing for Sentiment Analysis of E-commerce Reviews
+Name: Atharva Suryawansh
 
 ## Project Overview
 This project aims to leverage Natural Language Processing (NLP) techniques to analyze customer reviews of e-commerce products. By harnessing the power of machine learning and sentiment analysis, the project seeks to provide insights into customer sentiments, enabling businesses to improve product offerings and enhance customer satisfaction.
